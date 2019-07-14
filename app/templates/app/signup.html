@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Creating a html form</title>
+    </head>
+   
+    <body>
+        <div align="center" style="background-color:#BAFFF7 ; margin-right: 350px;margin-left: 350px">
+            <form action="" method="GET|POST" target="_blank">
+                <h2 align="center">Create User Account</h2>
+                First Name: <input type="text" name="first_name" placeholder="eg: Anurag" size="20" maxlength="20" required>
+               <br><br>
+                Last Name:  <input type="text" name="last_name" placeholder="eg; Rawat" size="20" maxlength="20" required>
+               <br><br>
+                User_Id:   <input type='text' name="user_id" placeholder="Eg abc12d@g" required>
+               <br><br>
+                Password:  <input type="password" name="user_id" minlength="8" required>
+               <br><br>
+                Confirm Password: <input type="password" name="user_id" minlength="8" required>
+                <br><br>
+                Gender:
+                <input type="radio" name="gender" value="male" >Male
+                <input type="radio" name="gender" value="female" >Female
+                <input type="radio" name="gender" value="others" >Others
+                <br><br>
+                Identity Proof:
+                <select name="Identity">
+                    <option value="adhar card">Adhar Card</option>
+                    <option value="Pan Card">Pan Card </option>
+                    <option value="Voter Id" selected>Voter Id</option>
+                </select>
+                <br><br>
+                Upload Photo: <input type="file" name="photo" accept="image/*">
+                <h3>why are you Signing up</h3><br>
+                <textarea rows="5" cols="50"  name="description" >
+                    Write here...
+                  
+                </textarea>
+                <br>
+
+                <input type="submit" name="submit" value="Sign Up">
+                <input type="reset" name="reset" value="Reset"
+
+        </form>
+        </div>
+
+        
+    
+    </body>
+</html>
