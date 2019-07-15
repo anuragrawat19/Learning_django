@@ -39,21 +39,15 @@ def list_of_school(request):
 
 def SchoolDetails(response,id):
     school_data=School.objects.get(pk=id)
+    name=school_data.SchoolName
+    address=school_data.Address
     data=school_data.Details
     dump_data=json.dumps(data)
+    return HttpResponse("School Name :- {} <br> School Address:-{} <br> School Details :-{}".format(name,address,dump_data))
 
-    for i in dump_data:
-        add=i
-    return HttpResponse(dump_data)
 
-    # school_details["principle's Name"]= data["school"]["about"]["principle"]
-    # school_details["School's Medium"]=data.Details["school"]["about"]["school_details"]["medium"]
-    # school_details["School's id"]= school_data.Details["school"]["about"]["school_details"]["school_id"]
-    # school_details["No_of_Teachers"]=school_data.Details["school"]["about"]["school_details"]["No_of_teacher"]
-    # school_details["NO_of_Students"]=school_data.Details["school"]["about"]["school_details"]["NO_of_students"]
-    # school_details["last examination date"]=school_data.Details["school"]["about"]["school_details"]["Last_examination"]
-    # school_details["Established year"]=school_data.Details["school"]["about"]["school_details"]["Esatablished_year"]
-    # res="Deatails of the school: <br><br>"
+   
+    
     
             
     

@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User #for usr authentication
 from django.utils.timezone import now
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
+from jsonfield import JSONField
 # Create your models here.
 
 User_status=((0,"Inactive"),(1,"Active"),) #creating  choices for the active/inactive status of user 
@@ -64,4 +65,28 @@ class School(models.Model):
 
     def __str__(self):
         return self.SchoolName
+class School_post(models.Model):
+    published_date=models.DateTimeField(auto_now_add=True)
+    content=models.TextField(max_length=500)
+    school_name=models.ForeignKey(School,related_name="school_post")
+    
+    def __str__(self):
+        return self.content
+
+class Car_brand(models.Model):
+    BrandName=models.CharField(max_length=20,verbose_name="Car Brand Name")
+    customer_service_number=models.BigIntegerField(verbose_name="customer care number")
+    head_quarters=models.CharField(max_length=100)
+    CEO=models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.BrandName
+
+class Car_brand_model(models.Model):
+    model_details=JSONField(default={})
+    model_id=models.ForeignKey(Car_brand,related_name="model_name")
+
+    def __str__(self):
+        for key,values in self.model_details.items():
+            return key
 
